@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h2 class="title"><%= item.title%></h2>
+    <img class="card-img-top show-img" src="<%= item.image && item.image.url ? item.image.url : '/static/default-image.jpg' %>" alt="Listing Image">
+    <p class="description"><%= item.description%></p>
+    <h3>₹<%= item.price || "0" %></h3>
+    <p class="country"><%= item.location%>, <%= item.country%></p>
+
+    <a href="/listings">
+        Back
+    </a>
+    <div class="row">
+        <form action="/listings/<%=item._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-dark offset-2 add-btn">Delete</button>
+        </form>
+        <form action="/listings/<%=item._id%>/edit">
+            <button class="btn btn-dark offset-6">Edit</button>
+        </form>
+    </div>
+    </div>
+</div>
+<body>
+    
+</body>
